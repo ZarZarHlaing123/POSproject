@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Add Brand</title>
+<link th:replace="admin/layout/assets :: css" />
+</head>
+<body>
+	<div id="container">
+		<!-- side navbar here  -->
+		<link th:replace="admin/layout/assets :: sideBar" />
+		<div id="content_wrap">
+			<div class="content_box">
+				<!-- header here  -->
+				<link th:replace="admin/layout/assets :: header" />
+
+			</div>
+			<div id="sub_content">
+				<h5 class="fw-bold">Add Brand</h5>
+				<div class="row justify-content-center">
+					<div class="col-lg-8 bg-gray p-5 mt-5 rounded-5">
+						<form th:action="@{/brand/addbrand}" method="post"
+							th:object="${brand}">
+							<div class="mb-3">
+								<label for="exampleInputEmail1" class="form-label">Name</label>
+								<input type="text" class="form-control" th:field="*{name}"
+									placeholder="Enter Brand Name" />
+							</div>
+							<div class=" text-end">
+								<a href="" class="btn btn-secondary ">Cancel</a>
+								<button type="submit" class="btn btn-primary ">Add</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- js   -->
+		<link th:replace="admin/layout/assets :: js" />
+</body>
+</html>

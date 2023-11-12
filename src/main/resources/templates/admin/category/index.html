@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Category</title>
+<link th:replace="admin/layout/assets :: css" />
+</head>
+<body>
+	<div id="container">
+		<!-- side navbar   -->
+		<link th:replace="admin/layout/assets :: sideBar" />
+		<div id="content_wrap">
+			<div class="content_box">
+				<!-- header   -->
+				<link th:replace="admin/layout/assets :: header" />
+
+			</div>
+			<div id="sub_content">
+				<form class="row g-3">
+					<div class="col-auto">
+						<label for="inputPassword2" class="visually-hidden">Category
+							Name</label> <input type="text" class="form-control"
+							placeholder="Category Name">
+					</div>
+
+					<div class="col-auto">
+						<button type="submit" class="btn btn-primary mb-3">Search</button>
+					</div>
+					<div class="col-auto">
+						<button type="submit" class="btn btn-danger mb-3">Reset</button>
+					</div>
+					<div class="col-auto">
+						<a th:href="@{/category/add}" class="btn btn-info">Add New</a>
+					</div>
+				</form>
+				
+				
+				<table class="table table-striped" id="stduentTable">
+					<thead>
+						<tr>
+
+							<th scope="col">ID</th>
+							<th scope="col">CategoryName</th>
+							<th scope="col">Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+					    
+						<tr th:each="category : ${categoryList}">
+							<td th:text="${category.categoryId}"></td>
+							<td th:text="${category.categoryName}"></td>
+							<td>
+								<button type="button" class="btn btn-link btn-lg btn-rounded">
+									<i class="fa-solid fa-pen-to-square"></i>
+								</button>
+								<button type="button"
+									class="btn btn-link text-danger btn-lg btn-rounded">
+									<i class="fa-regular fa-trash-can"></i>
+								</button>
+							</td>
+						</tr> 
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+
+		<!-- js   -->
+		<link th:replace="admin/layout/assets :: js" />
+</body>
+</html>
