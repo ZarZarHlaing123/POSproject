@@ -3,7 +3,7 @@
 	xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Add Category</title>
+<title>Update Category</title>
 <link th:replace="admin/layout/assets :: css" />
 </head>
 <body>
@@ -20,7 +20,7 @@
 				<h5 class="fw-bold">Add Category</h5>
 				<div class="row justify-content-center">
 					<div class="col-lg-8 bg-gray p-5 mt-5 rounded-5">
-						<form  class="needs-validation" th:action="@{/category/add}" method="post" th:object=${category} >
+						<form  class="needs-validation" th:action="@{/category/update/{id} (id=${category.categoryId}) }" method="post" th:object=${category} >
 							<div class="mb-3">
 								<label for="exampleInputEmail1" class="form-label">Name</label>
 								<input type="text" class="form-control"
@@ -29,7 +29,7 @@
 							</div>
 							<div class=" text-end">
 								<a th:href="@{/category}" class="btn btn-secondary ">Cancel</a>
-								<button type="submit" class="btn btn-primary ">Add</button>
+								<button type="submit" class="btn btn-primary ">Update</button>
 							</div>
 						</form>
 					</div>

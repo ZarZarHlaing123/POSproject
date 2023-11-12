@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Add SubCategory</title>
+<link th:replace="admin/layout/assets :: css" />
+</head>
+<body>
+	<div id="container">
+		<!-- side navbar here  -->
+		<link th:replace="admin/layout/assets :: sideBar" />
+		<div id="content_wrap">
+			<div class="content_box">
+				<!-- header here  -->
+				<link th:replace="admin/layout/assets :: header" />
+
+			</div>
+			<div id="sub_content">
+				<h5 class="fw-bold">Add SubCategory</h5>
+				<div class="row justify-content-center">
+					<div class="col-lg-8 bg-gray p-5 mt-5 rounded-5">
+
+
+						<form method="post" th:action="@{/subcategory/add}" th:object="${subcategory}">
+							<div class="mb-3">
+								<label for="subName" class="form-label">Sub-CategoryName : </label>
+								<input type="text" class="form-control"
+									placeholder="Enter Sub-Category Name" th:field="*{subCategoryName}"/>
+			
+							</div>
+							 <div class="mb-3">
+								<label for="categoryId" class="form-label">Category:</label> 
+								<select field="" class="form-select">
+									<option each="category : ${categories}" th:value="${categoryId}"  th:text="${categoryName}">
+									</option>
+								</select> 
+							</div> 
+							<div class="text-end">
+								<a href="#" class="btn btn-secondary">Cancel</a>
+								<button type="submit" class="btn btn-primary">Add</button>
+							</div>
+						</form>
+
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- js   -->
+		<link th:replace="admin/layout/assets :: js" />
+</body>
+</html>

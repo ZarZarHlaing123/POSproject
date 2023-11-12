@@ -17,11 +17,12 @@
 
 			</div>
 			<div id="sub_content">
+				<div class="alert alert-success" role="alert" th:text="${success}" th:if="${success}"></div>
+				
 				<form class="row g-3">
 					<div class="col-auto">
-						<label for="inputPassword2" class="visually-hidden">Category
-							Name</label> <input type="text" class="form-control"
-							placeholder="Category Name">
+						<label for="inputPassword2" class="visually-hidden">Category Name</label> 
+						<input type="text" class="form-control" placeholder="Category Name">
 					</div>
 
 					<div class="col-auto">
@@ -36,12 +37,13 @@
 				</form>
 				
 				
+				
 				<table class="table table-striped" id="stduentTable">
 					<thead>
 						<tr>
 
 							<th scope="col">ID</th>
-							<th scope="col">CategoryName</th>
+							<th scope="col">Category Name</th>
 							<th scope="col">Actions</th>
 						</tr>
 					</thead>
@@ -51,12 +53,15 @@
 							<td th:text="${category.categoryId}"></td>
 							<td th:text="${category.categoryName}"></td>
 							<td>
-								<button type="button" class="btn btn-link btn-lg btn-rounded">
-									<i class="fa-solid fa-pen-to-square"></i>
+								<button type="button" class="btn btn-link">
+									<a th:href="@{/category/update/{id}(id =${category.categoryId})}" class="btn btn-link btn-lg btn-rounded">
+										<i class="fa-solid fa-pen-to-square"></i>
+									</a>
 								</button>
-								<button type="button"
-									class="btn btn-link text-danger btn-lg btn-rounded">
-									<i class="fa-regular fa-trash-can"></i>
+								<button type="button"  class="btn btn-link">
+									<a th:href="@{/category/delete/{id} (id=${category.categoryId}) }" class="btn btn-link text-danger btn-lg btn-rounded">
+										<i class="fa-regular fa-trash-can"></i>
+									</a>
 								</button>
 							</td>
 						</tr> 
